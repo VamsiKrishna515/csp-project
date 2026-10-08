@@ -502,6 +502,7 @@ function showPage(id){
   window.scrollTo({top:0,behavior:'smooth'});
   document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active', a.dataset.nav===id));
   document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('navBackdrop')?.classList.remove('open');
   document.getElementById('backHomeBtn').classList.toggle('hidden', id==='home');
   if(id==='home') setTimeout(buildParticles,50);
   setTimeout(()=>{ initReveals(); initPageWidgets(id); },30);
@@ -821,7 +822,7 @@ function renderCyberTool(){
         </div>
         <div class="tool-box">
           <label>Generate a strong random password</label>
-          <div style="display:flex;gap:10px;">
+          <div class="password-gen-row" style="display:flex;gap:10px;">
             <input type="text" id="pwOutput" readonly placeholder="Click generate →" style="margin-bottom:0;">
             <button class="btn btn-outline" onclick="generatePassword()" style="white-space:nowrap;"><i class="fa-solid fa-arrows-rotate"></i> Generate</button>
           </div>
